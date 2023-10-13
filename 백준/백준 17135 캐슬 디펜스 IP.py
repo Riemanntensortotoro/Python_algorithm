@@ -39,9 +39,6 @@ import copy
 
 N, M, D = map(int, input().split())
 board = [list(map(int, input().split())) for _ in range(N)]
-# 입력: 격자판의 크기 N, M과 궁수의 공격 거리 D
-# 게임판 정보 입력 받기 (0: 빈 칸, 1: 적)
-
 
 # 두 점 사이의 거리
 def distance(a, b):

@@ -22,23 +22,19 @@ def is_prime(num):
             return False
     return True             # 모든 테스트를 통과하면 소수
 
-# 신기한 소수를 찾는 재귀 함수
 def dfs(n, num):
     # 주어진 자릿수만큼의 숫자를 생성했을 경우 출력
     if n == 0:
         print(num)
         return
     # 다음 자릿수의 숫자를 결정하기 위한 반복문
-    for i in range(10):  # 0부터 9까지 시도
-        next_num = num * 10 + i  # 다음 숫자 생성
-        # 만들어진 수가 소수라면 재귀 호출
+    for i in range(10):             # 0부터 9까지 시도
+        next_num = num * 10 + i     # 다음 숫자 생성
         if is_prime(next_num):
             dfs(n - 1, next_num)
 
-# 입력: N 자리의 신기한 소수를 찾아야 함
 N = int(input())
 
 # 초기 시작 숫자는 1자리 소수인 2, 3, 5, 7
-# 각 숫자를 시작으로 dfs 함수 호출
 for i in [2, 3, 5, 7]:
     dfs(N-1, i)

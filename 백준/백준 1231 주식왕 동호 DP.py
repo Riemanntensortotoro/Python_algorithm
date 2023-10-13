@@ -22,12 +22,12 @@ C, D, M = map(int, input().split())
 stock = [list(map(int, input().split())) for _ in range(C)]
 
 for j in range(1, D):
-    dp = [0] * (M + 1)
+    dp = [0] * (M + 1)  # dp[k]는 초기 자금이 k일 때 최대로 얻을 수 있는 이익
 
     for i in range(C):
         for k in range(stock[i][j - 1], M + 1):
             dp[k] = max(dp[k], dp[k - stock[i][j - 1]] + stock[i][j] - stock[i][j - 1])
-
-    M += dp[M]
+# dp[k]는 해당 주식을 구매하지 않았을 때의 이익, dp[k - stock[i][j - 1]] + stock[i][j] - stock[i][j - 1]는 해당 주식을 구매했을 때의 이익
+    M += dp[M]  # M에 최대 이익을 더해서 자금 상황을 업데이트
 
 print(M)
